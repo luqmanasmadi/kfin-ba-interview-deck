@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Luqman × KFin BA Interview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: fixed 1280x720 stage scaled to fit; one idea per slide, each with one illustration; phones get stacked cards */
+:root{
+  --ink:#1F2A5C; --muted:#5A6699; --paper:#F6F3FD; --blush:#DDE3F8; --rose:#AEBDEA;
+  --blue:#3F5BB5; --amber:#F9B774; --sun:#F7E58F; --mint:#A8E0B5; --red:#E5484D; --line:#D6DCF2; --stage:#121836;
+  --f:"Inter","Segoe UI",system-ui,sans-serif;
+  color-scheme:dark;
+}
+html,body{height:100%}
+body{margin:0;background:var(--stage);color:var(--ink);font-family:var(--f);overflow:hidden}
+#viewport{position:fixed;inset:0}
+#stage{width:1280px;height:720px;position:absolute;left:50%;top:50%;transform-origin:center}
+.slide{position:absolute;inset:0;background:var(--paper);border-radius:14px;overflow:hidden;padding:72px 88px;box-sizing:border-box;display:none;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.slide.on{display:block}
+h1,h2,h3{margin:0;text-wrap:balance;color:var(--ink)}
+h2{font-size:50px;font-weight:800;letter-spacing:-.025em;line-height:1.05}
+h2 em,h1 em{font-style:normal;color:var(--blue)}
+.eb{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:12px}
+p{margin:0}
+svg{display:block}
+.art svg{width:100%;height:auto}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.a{animation:rise .55s cubic-bezier(.2,.7,.2,1) both}
+.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.32s}.d5{animation-delay:.4s}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.spin{transform-box:fill-box;transform-origin:center;animation:spin 14s linear infinite}
+.spin.r{animation-direction:reverse;animation-duration:9s}
+@keyframes spin{to{transform:rotate(360deg)}}
+.float{animation:float 5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-8px)}}
+.draw{stroke-dasharray:900;stroke-dashoffset:900;animation:draw 1.6s .3s ease-out forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){.a,.spin,.float{animation:none}.draw{animation:none;stroke-dashoffset:0}}
+.foot{position:absolute;left:88px;right:88px;bottom:28px;display:flex;justify-content:space-between;font-size:12px;letter-spacing:.08em;color:var(--muted)}
+.dark{background:linear-gradient(150deg,var(--ink),var(--blue))}
+.dark h2,.dark .eb{color:#fff}.dark .eb{color:var(--sun)}.dark .foot{color:var(--rose)}
+.split{display:grid;grid-template-columns:1fr 420px;gap:40px;align-items:center;height:100%}
+
+/* title + end */
+.hero{background:linear-gradient(120deg,#fff 0%,var(--paper) 40%,var(--blush) 75%,#A98FD6 100%)}
+.hero .glow{position:absolute;right:-160px;top:-100px;width:700px;height:860px;background:conic-gradient(from 200deg at 60% 50%,var(--blush),#7D8DDB,var(--blue),var(--rose),var(--blush));opacity:.4;filter:blur(30px);transform:rotate(18deg)}
+.hero .split{position:relative}
+.hero h1{font-size:76px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.hero .stack{display:flex;flex-direction:column;gap:24px}
+.chip{display:inline-block;background:var(--sun);color:var(--ink);font-size:13px;font-weight:700;padding:7px 12px;border-radius:8px;width:max-content;transform:rotate(-2deg)}
+.badge{display:inline-flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:10px 22px 10px 10px;width:max-content;max-width:100%;box-sizing:border-box;box-shadow:0 10px 30px rgba(63,91,181,.15)}
+.badge .av{width:44px;height:44px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:700}
+.badge b{display:block;font-size:17px}.badge small{color:var(--muted);font-size:14px}
+
+/* about */
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:38px}
+.num{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}
+.num .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;margin-bottom:14px}
+.num b{display:block;font-size:40px;font-weight:800;color:var(--blue);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.num span{display:block;margin-top:6px;font-size:15.5px;color:var(--muted);line-height:1.35}
+.path{display:flex;align-items:center;gap:0;margin-top:34px}
+.path div{flex:1;text-align:center;position:relative;font-size:14px;color:var(--muted)}
+.path div b{display:block;font-size:15px;color:var(--ink)}
+.path div::before{content:"";display:block;width:16px;height:16px;border-radius:50%;background:#fff;border:4px solid var(--blue);margin:0 auto 8px;position:relative;z-index:1}
+.path div::after{content:"";position:absolute;top:10px;left:50%;width:100%;height:3px;background:var(--rose)}
+.path div:last-child::after{display:none}
+.path div:last-child::before{background:var(--blue)}
+
+/* fit */
+.fit{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:26px}
+.row{display:grid;grid-template-columns:30px 1fr;gap:14px;text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:13px 18px;min-height:88px;box-sizing:border-box;transition:border-color .2s}
+.row .t{width:26px;height:26px;border-radius:50%;border:2px solid var(--rose);display:grid;place-items:center;color:transparent;font-size:14px}
+.row b{display:block;font-size:16.5px}
+.row span{display:block;margin-top:4px;font-size:14.5px;color:var(--muted);line-height:1.4;visibility:hidden}
+.row.ok{border-color:var(--blue)}
+.row.ok .t{background:var(--blue);border-color:var(--blue);color:#fff}
+.row.ok span{visibility:visible}
+.meter{position:absolute;right:88px;top:52px;display:flex;align-items:center;gap:14px}
+.meter b{font-size:44px;font-weight:800;color:var(--blue);font-variant-numeric:tabular-nums}
+.ghost{background:none;border:1.5px solid var(--blue);color:var(--blue);border-radius:999px;padding:8px 16px;font-weight:600;font-size:14px}
+
+/* SIGMA */
+.sg{display:grid;grid-template-columns:1fr 470px;gap:30px;margin-top:28px}
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tab{text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;gap:12px;align-items:center}
+.tab svg{flex:none}
+.tab b{display:block;font-size:17px}.tab small{color:var(--muted);font-size:13.5px}
+.tab.sel{background:var(--blue);border-color:var(--blue);color:#fff}.tab.sel small{color:var(--blush)}
+.tab.sel svg *{stroke:#fff}
+.panel{margin-top:12px;background:var(--blush);border-radius:16px;padding:20px 24px;min-height:140px;box-sizing:border-box}
+.panel ul{margin:0;padding-left:20px;font-size:17.5px;line-height:1.7}
+.mock{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 20px 50px rgba(31,42,92,.12)}
+.mock .top{display:flex;gap:6px;margin-bottom:12px}.mock .top i{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.kpis div{background:var(--paper);border-radius:10px;padding:10px}
+.kpis small{display:block;font-size:11px;color:var(--muted)}.kpis b{font-size:20px}
+.prj{display:grid;grid-template-columns:1fr 70px;gap:6px 10px;align-items:center;font-size:13px;margin-top:12px}
+.pill{font-size:11px;font-weight:700;border-radius:999px;padding:3px 8px;text-align:center}
+.note{margin-top:14px;font-size:15px;color:var(--muted)}
+
+/* case */
+.flow{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}
+.flow::before{content:"";position:absolute;left:12%;right:12%;top:46px;height:4px;background:repeating-linear-gradient(90deg,var(--blue) 0 12px,transparent 12px 20px)}
+.fl{position:relative;text-align:center}
+.fl .ic{width:92px;height:92px;border-radius:50%;margin:0 auto 14px;background:#fff;border:3px solid var(--blue);display:grid;place-items:center;box-shadow:0 10px 24px rgba(63,91,181,.18)}
+.fl .k{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--blue)}
+.fl p{font-size:16px;line-height:1.45;margin-top:6px}
+.res{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.res div{background:var(--ink);border-radius:16px;padding:18px 22px;color:#fff;display:flex;align-items:baseline;gap:12px}
+.res b{font-size:32px;font-weight:800;color:var(--sun)}
+.res span{font-size:15px;color:var(--blush)}
+
+/* plan */
+.road{position:relative;height:440px;margin-top:16px}
+.road>svg{position:absolute;inset:0;width:100%;height:100%}
+.ms{position:absolute;width:290px;color:#fff}
+.ms .pin{width:22px;height:22px;border-radius:50%;background:var(--sun);border:4px solid #fff;box-shadow:0 0 0 6px rgba(247,229,143,.3);margin-bottom:10px}
+.ms .k{font-size:12px;letter-spacing:.12em;color:var(--sun);font-weight:700}
+.ms h3{color:#fff;font-size:28px;margin:2px 0 6px}
+.ms ul{margin:0;padding-left:17px;font-size:15.5px;line-height:1.55;color:#E9ECFA}
+.goal{position:absolute;right:0;top:0;width:200px;height:200px}
+.goal p{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--ink);color:#fff;font-size:13.5px;padding:9px 12px;border-radius:10px;width:150px;text-align:center;line-height:1.35}
+
+.contact{display:flex;gap:12px;flex-wrap:wrap}
+.contact span{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 18px;font-size:17px;user-select:all}
+
+/* chrome */
+#bar{position:fixed;left:0;right:0;bottom:0;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));display:flex;gap:10px;align-items:center;justify-content:center;color:#C9CEE1;font-size:13px;z-index:5;transition:opacity .3s}
+#bar button{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#fff;border-radius:8px;padding:6px 12px;font-size:13px}
+#count{min-width:56px;text-align:center}
+#prog{position:fixed;left:0;top:0;height:3px;background:linear-gradient(90deg,var(--amber),var(--blue));transition:width .3s;z-index:6}
+body.idle #bar{opacity:0}
+body.editing #bar{opacity:1}
+body.editing .slide{outline:3px dashed var(--amber);outline-offset:-8px}
+body.editing #bEdit{background:var(--amber);color:var(--ink)}
+
+
+/* BA extras */
+.hero h1{font-size:62px}
+.hero h1 em{display:block;font-size:40px;margin-top:10px;letter-spacing:-.02em}
+.life{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-top:30px;position:relative}
+.life::before{content:"";position:absolute;left:5%;right:5%;top:30px;height:3px;background:repeating-linear-gradient(90deg,var(--blue) 0 10px,transparent 10px 18px)}
+.lf{position:relative;background:none;border:0;padding:0;font-weight:700;font-size:14.5px;color:var(--ink);line-height:1.25}
+.lf span{display:grid;place-items:center;width:60px;height:60px;margin:0 auto 10px;border-radius:50%;background:#fff;border:3px solid var(--blue);font-size:20px;font-weight:800;color:var(--blue);transition:.2s}
+.lf.sel span{background:var(--blue);color:#fff;transform:scale(1.08);box-shadow:0 8px 20px rgba(63,91,181,.3)}
+.lpanel{margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.lpanel div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+.lpanel div:nth-child(3){background:var(--blush);border-color:var(--blush)}
+.lpanel h4{margin:0 0 8px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+.lpanel ul{margin:0;padding-left:18px;font-size:15.5px;line-height:1.55}
+.steps6{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:30px}
+.s6{text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:14px}
+.s6 small{display:block;font-size:11px;font-weight:700;color:var(--blue);letter-spacing:.1em}
+.s6 b{display:block;font-size:16.5px;margin-top:4px}
+.s6.sel{background:var(--blue);border-color:var(--blue);color:#fff}.s6.sel small{color:var(--blush)}
+.spanel{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.spanel>div{background:var(--blush);border-radius:16px;padding:20px 24px}
+.spanel>div.ex{background:var(--ink);color:#fff}
+.spanel h4{margin:0 0 8px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+.spanel .ex h4{color:var(--sun)}
+.spanel ul{margin:0;padding-left:18px;font-size:16px;line-height:1.6}
+.spanel p{font-size:15.5px;line-height:1.6;color:#E9ECFA}
+.spanel p b{color:var(--sun)}
+@media (max-width:760px){
+  .hero h1{font-size:34px}.hero h1 em{font-size:24px}
+  .life{grid-template-columns:repeat(4,1fr);row-gap:14px}.life::before{display:none}
+  .lf{font-size:12px}.lf span{width:44px;height:44px;font-size:16px}
+  .lpanel,.spanel{grid-template-columns:1fr}
+  .steps6{grid-template-columns:repeat(3,1fr)}
+  .s6 b{font-size:13.5px}
+}
+
+/* phone: stacked cards */
+@media (max-width:760px){
+  html,body{height:auto}
+  body{overflow:auto}
+  #viewport{position:static;padding:12px 12px 24px}
+  #stage{position:static;width:auto;height:auto;transform:none!important}
+  .slide{position:relative;inset:auto;display:block!important;padding:28px 20px 48px;margin-bottom:14px;box-shadow:0 6px 20px rgba(0,0,0,.3)}
+  #bar,#prog{display:none}
+  h2{font-size:30px}
+  .split,.sg{grid-template-columns:minmax(0,1fr);height:auto;gap:20px}
+  .badge{width:100%;border-radius:18px}.badge>div:last-child{min-width:0}
+  .hero h1{font-size:40px}
+  .hero .glow{width:360px;height:480px;right:-160px}
+  .hero .art{max-width:260px;margin:0 auto}
+  .nums{grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+  .num{padding:14px}.num b{font-size:26px}.num span{font-size:13.5px}
+  .path{flex-wrap:wrap;row-gap:14px}.path div{flex:0 0 50%}.path div::after{display:none}
+  .meter{position:static;margin-top:14px}.meter b{font-size:32px}
+  .fit{grid-template-columns:1fr;margin-top:14px}
+  .row{min-height:0}.row span{display:none}.row.ok span{display:block}
+  .panel ul{font-size:15.5px}
+  .flow{grid-template-columns:1fr 1fr;gap:20px 12px;margin-top:22px}
+  .flow::before{display:none}
+  .fl .ic{width:70px;height:70px}.fl p{font-size:14px}
+  .res{grid-template-columns:1fr}.res b{font-size:24px}
+  .road{height:auto}.road>svg{display:none}
+  .ms{position:static!important;width:auto;margin-bottom:18px}
+  .goal{position:relative;right:auto;margin:0 auto}
+  .foot{left:20px;right:20px;bottom:14px;font-size:10.5px}
+  .contact span{font-size:14px}
+}
+</style>
+</head><body>
+<div id="prog"></div>
+<div id="viewport"><div id="stage">
+
+<!-- 1 TITLE -->
+<section class="slide hero">
+  <div class="glow"></div>
+  <div class="split">
+    <div class="stack">
+      <div class="eb a">Interview · KFin Technologies Sdn Bhd</div>
+      <h1 class="a d1">Business Analyst <em>Transfer Agency &amp; Investor Services</em></h1>
+      <span class="chip a d2">Unit trusts · Pension funds · Private mandates</span>
+      <div class="badge a d3"><div class="av">LA</div><div><b>Luqman Asmadi, PMP®</b><small>7+ years business &amp; tech · FIMM licensed</small></div></div>
+    </div>
+    <div class="art a d2">
+      <svg viewBox="0 0 420 380" aria-hidden="true">
+        <g class="float">
+          <rect x="40" y="30" width="170" height="320" rx="28" fill="#1F2A5C"/>
+          <rect x="54" y="62" width="142" height="260" rx="14" fill="#fff"/>
+          <text x="68" y="92" font-family="Inter,sans-serif" font-size="12" fill="#5A6699">My portfolio</text>
+          <text x="68" y="120" font-family="Inter,sans-serif" font-size="22" font-weight="800" fill="#1F2A5C">RM 48,250</text>
+          <path class="draw" d="M68 180 L96 168 L120 174 L146 150 L182 140" fill="none" stroke="#3F5BB5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="68" y="204" width="114" height="30" rx="8" fill="#3F5BB5"/><text x="125" y="224" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="700" fill="#fff">Subscribe</text>
+          <rect x="68" y="242" width="114" height="30" rx="8" fill="#DDE3F8"/><text x="125" y="262" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="700" fill="#1F2A5C">Redeem</text>
+        </g>
+        <g class="float" style="animation-delay:-2.5s">
+          <rect x="236" y="70" width="160" height="56" rx="14" fill="#fff" stroke="#D6DCF2" stroke-width="2"/><circle cx="262" cy="98" r="12" fill="#A8E0B5"/><path d="M256 98l4 4 8-8" fill="none" stroke="#1F2A5C" stroke-width="3" stroke-linecap="round"/><text x="284" y="103" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#1F2A5C">KYC passed</text>
+          <rect x="236" y="150" width="160" height="56" rx="14" fill="#fff" stroke="#D6DCF2" stroke-width="2"/><circle cx="262" cy="178" r="12" fill="#F7E58F"/><text x="262" y="183" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="800" fill="#1F2A5C">4</text><text x="284" y="183" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#1F2A5C">Units allotted</text>
+          <rect x="236" y="230" width="160" height="56" rx="14" fill="#fff" stroke="#D6DCF2" stroke-width="2"/><circle cx="262" cy="258" r="12" fill="#AEBDEA"/><path d="M256 258h12M262 252v12" stroke="#1F2A5C" stroke-width="3" stroke-linecap="round"/><text x="284" y="263" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#1F2A5C">Reconciled</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div class="foot"><span>Luqman Asmadi</span><span>01 / 09</span></div>
+</section>
+
+<!-- 2 ABOUT -->
+<section class="slide">
+  <div class="eb a">About me</div>
+  <h2 class="a d1">I turn business needs into <em>working systems</em></h2>
+  <div class="nums">
+    <div class="num a d1"><div class="ic" style="background:#DDE3F8"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3F5BB5" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><b data-n="7" data-s="+">7+</b><span>years between business and tech</span></div>
+    <div class="num a d2"><div class="ic" style="background:#EDE4F7"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8A4FC4" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="9" r="5"/><path d="M8.5 13 7 21l5-3 5 3-1.5-8"/></svg></div><b style="font-size:34px">FIMM</b><span>licensed, unit trust experience</span></div>
+    <div class="num a d3"><div class="ic" style="background:#E3F5E8"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2F8A4C" stroke-width="2.2" stroke-linecap="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></div><b data-n="3">3</b><span>systems specified and launched: ALPHA, OMEGA, SIGMA</span></div>
+    <div class="num a d4"><div class="ic" style="background:#FDEBD7"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C77A1E" stroke-width="2.2" stroke-linecap="round"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></div><b data-n="5" data-p="RM" data-s="M+">RM5M+</b><span>project finance: budgets, reconciliation</span></div>
+  </div>
+  <div class="path a d5">
+    <div><b>Data Analyst</b>2019</div>
+    <div><b>Project Finance</b>2020</div>
+    <div><b>Project Lead</b>2021</div>
+    <div><b>PM and BA</b>2021 – now</div>
+  </div>
+  <div class="foot"><span>About me</span><span>02 / 09</span></div>
+</section>
+
+<!-- 3 FIT -->
+<section class="slide">
+  <div class="eb a">Your JD vs my track record</div>
+  <h2 class="a d1">Why I <em>fit</em></h2>
+  <div class="meter a d2">
+    <svg width="64" height="64" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="92" fill="#DDE3F8"/><circle cx="100" cy="100" r="66" fill="#AEBDEA"/><circle cx="100" cy="100" r="40" fill="#DDE3F8"/><circle cx="100" cy="100" r="18" fill="#3F5BB5"/><path d="M190 14 108 94" stroke="#1F2A5C" stroke-width="9" stroke-linecap="round"/><path d="M190 14l-6 24 22-6z" fill="#F9B774"/></svg>
+    <b id="mtr">0/8</b><button class="ghost" id="all">Match all</button>
+  </div>
+  <div class="fit" id="fit">
+    <button class="row a d1"><span class="t">✓</span><div><b>Map end-to-end processes</b><span>As-is and to-be flows from stakeholder workshops; found the gaps first.</span></div></button>
+    <button class="row a d1"><span class="t">✓</span><div><b>BRD, FRD, user stories, AC</b><span>Wrote the full requirement set for SIGMA and for a client tender.</span></div></button>
+    <button class="row a d2"><span class="t">✓</span><div><b>Ops, IT, Product, Compliance</b><span>Ran workshops across business users, developers, finance and approvers.</span></div></button>
+    <button class="row a d2"><span class="t">✓</span><div><b>Unit trust domain</b><span>FIMM licensed; unit trust experience; know the investor side of the process.</span></div></button>
+    <button class="row a d3"><span class="t">✓</span><div><b>Automation and efficiency</b><span>Automated reporting; built approval and reconciliation flows into systems.</span></div></button>
+    <button class="row a d3"><span class="t">✓</span><div><b>UAT, training, stabilisation</b><span>Ran UAT, user onboarding and post go-live fixes on every launch.</span></div></button>
+    <button class="row a d4"><span class="t">✓</span><div><b>Controls and governance</b><span>Maker-checker approvals and full audit trail designed into SIGMA.</span></div></button>
+    <button class="row a d4"><span class="t">✓</span><div><b>Agile, Waterfall, hybrid</b><span>Stage gates for sign-off, sprints for build. PMP certified.</span></div></button>
+  </div>
+  <div class="foot"><span>Tap each line</span><span>03 / 09</span></div>
+</section>
+
+<!-- 4 TA LIFECYCLE -->
+<section class="slide">
+  <div class="eb a">The investor lifecycle, as a BA sees it</div>
+  <h2 class="a d1">Transfer Agency <em>end to end</em></h2>
+  <div class="life a d2" id="life">
+    <button class="lf sel" data-l="0"><span>1</span>Onboard</button>
+    <button class="lf" data-l="1"><span>2</span>Subscribe</button>
+    <button class="lf" data-l="2"><span>3</span>Maintain</button>
+    <button class="lf" data-l="3"><span>4</span>Switch / transfer</button>
+    <button class="lf" data-l="4"><span>5</span>Distribute</button>
+    <button class="lf" data-l="5"><span>6</span>Redeem</button>
+    <button class="lf" data-l="6"><span>7</span>Reconcile &amp; report</button>
+  </div>
+  <div class="lpanel a d3" id="lpanel"></div>
+  <div class="foot"><span>Tap a stage</span><span>04 / 09</span></div>
+</section>
+
+<!-- 5 BA METHOD -->
+<section class="slide">
+  <div class="eb a">How I work</div>
+  <h2 class="a d1">From workshop to <em>stable in production</em></h2>
+  <div class="steps6 a d2" id="steps">
+    <button class="s6 sel" data-s="0"><small>01</small><b>Workshop</b></button>
+    <button class="s6" data-s="1"><small>02</small><b>As-is / to-be</b></button>
+    <button class="s6" data-s="2"><small>03</small><b>BRD / FRD</b></button>
+    <button class="s6" data-s="3"><small>04</small><b>Stories + AC</b></button>
+    <button class="s6" data-s="4"><small>05</small><b>UAT</b></button>
+    <button class="s6" data-s="5"><small>06</small><b>Stabilise</b></button>
+  </div>
+  <div class="spanel a d3" id="spanel"></div>
+  <div class="foot"><span>Tap a step · example is illustrative</span><span>05 / 09</span></div>
+</section>
+
+<!-- 6 SIGMA -->
+<section class="slide">
+  <div class="eb a">BA work I delivered</div>
+  <h2 class="a d1"><em>SIGMA</em>: requirements to live system</h2>
+  <div class="sg">
+    <div>
+      <div class="tabs a d2" id="tabs">
+        <button class="tab sel" data-i="0"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3F5BB5" stroke-width="2" stroke-linecap="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="m9 12 2 2 4-4"/></svg><div><b>Approvals</b><small>Maker-checker</small></div></button>
+        <button class="tab" data-i="1"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3F5BB5" stroke-width="2" stroke-linecap="round"><path d="M4 7h11M4 12h16M4 17h8"/><path d="m17 15 2 2 3-4"/></svg><div><b>Reconciliation</b><small>Bank vs books</small></div></button>
+        <button class="tab" data-i="2"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3F5BB5" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M15 9h-4a2 2 0 0 0 0 4h2a2 2 0 0 1 0 4H9M12 6v2M12 17v1"/></svg><div><b>Payments</b><small>Runs, bills, invoices</small></div></button>
+        <button class="tab" data-i="3"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3F5BB5" stroke-width="2" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><div><b>Reporting</b><small>Audit-ready</small></div></button>
+      </div>
+      <div class="panel a d3" id="panel"></div>
+    </div>
+    <div class="mock a d3" aria-hidden="true">
+      <div class="top"><i></i><i></i><i></i></div>
+      <div class="kpis"><div><small>Matched</small><b style="color:#2F8A4C">96%</b></div><div><small>Breaks</small><b style="color:#C77A1E">4</b></div><div><small>Pending approval</small><b>7</b></div></div>
+      <div class="prj">
+        <span>Bank line RM12,400.00</span><span class="pill" style="background:#E3F5E8;color:#2F8A4C">Matched</span>
+        <span>Bank line RM3,150.50</span><span class="pill" style="background:#FDEBD7;color:#C77A1E">Break</span>
+        <span>Payment run PR-2510-004</span><span class="pill" style="background:#DDE3F8;color:#3F5BB5">Checker</span>
+        <span>Invoice INV-2510-018</span><span class="pill" style="background:#E3F5E8;color:#2F8A4C">Approved</span>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Tap a module · screen shows sample data</span><span>06 / 09</span></div>
+</section>
+
+<!-- 7 CASE -->
+<section class="slide">
+  <div class="eb a">Client case · Powerline &amp; utilities</div>
+  <h2 class="a d1">My specification won a <em>10-year platform</em></h2>
+  <div class="flow">
+    <div class="fl a d1"><div class="ic"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#3F5BB5" stroke-width="1.8" stroke-linecap="round"><path d="M12 2v20M7 6h10M5 11h14M8 6l-3 16M16 6l3 16"/></svg></div><span class="k">SITUATION</span><p>5-year inspection contract. Data only in yearly reports.</p></div>
+    <div class="fl a d2"><div class="ic"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#3F5BB5" stroke-width="1.8" stroke-linecap="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z"/></svg></div><span class="k">GAP</span><p>No live view of asset condition.</p></div>
+    <div class="fl a d3"><div class="ic"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#3F5BB5" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></div><span class="k">BA WORK</span><p>Workshops, requirements and the spec for tender.</p></div>
+    <div class="fl a d4"><div class="ic" style="background:#3F5BB5"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="m9.5 12 2 2 3.5-4"/></svg></div><span class="k">RESULT</span><p>Live monitoring app, on time.</p></div>
+  </div>
+  <div class="res a d5">
+    <div><b>10 yrs</b><span>new contract</span></div>
+    <div><b>RM3M</b><span>per year</span></div>
+    <div><b>AI</b><span>upsell: defect detection</span></div>
+  </div>
+  <div class="foot"><span>Client name confidential</span><span>07 / 09</span></div>
+</section>
+
+<!-- 8 PLAN -->
+<section class="slide dark">
+  <div class="eb a">If I join KFin</div>
+  <h2 class="a d1">My first 90 days</h2>
+  <div class="road a d2">
+    <svg viewBox="0 0 1104 440" preserveAspectRatio="none" aria-hidden="true"><path d="M10 410 C 200 410, 230 290, 380 280 S 640 230, 700 170 S 860 90, 940 100" fill="none" stroke="#F7E58F" stroke-width="4" stroke-dasharray="10 10" opacity=".85"/></svg>
+    <div class="ms" style="left:0;top:150px"><div class="pin"></div><span class="k">DAY 1–30</span><h3>Learn</h3><ul><li>TA platform and daily ops cycle</li><li>Sit with ops: cut-off to payout</li><li>Controls, compliance, clients</li></ul></div>
+    <div class="ms" style="left:330px;top:30px"><div class="pin"></div><span class="k">DAY 31–60</span><h3>Map</h3><ul><li>As-is flows for key processes</li><li>Pain points and manual steps</li><li>Backlog ranked by risk and effort</li></ul></div>
+    <div class="ms" style="left:620px;top:220px"><div class="pin"></div><span class="k">DAY 61–90</span><h3>Deliver</h3><ul><li>First BRD signed off</li><li>One quick-win automation</li><li>UAT plan ready</li></ul></div>
+    <div class="goal"><svg viewBox="0 0 200 200" width="200" height="200"><circle cx="100" cy="100" r="96" fill="#fff"/><circle cx="100" cy="100" r="74" fill="#AEBDEA"/><circle cx="100" cy="100" r="52" fill="#fff"/><circle cx="100" cy="100" r="30" fill="#AEBDEA"/></svg><p>Goal: the BA ops and IT both trust</p></div>
+  </div>
+  <div class="foot"><span>90-day plan</span><span>08 / 09</span></div>
+</section>
+
+<!-- 9 THANKS -->
+<section class="slide hero">
+  <div class="glow"></div>
+  <div class="split">
+    <div class="stack">
+      <div class="eb a">Questions welcome</div>
+      <h1 class="a d1">Thank you.</h1>
+      <div class="contact a d2"><span>nikluqman96@gmail.com</span><span>011-5440 9043</span></div>
+    </div>
+    <div class="art a d2">
+      <svg viewBox="0 0 420 340" aria-hidden="true">
+        <g class="spin"><circle cx="190" cy="170" r="92" fill="#AEBDEA"/><g fill="#AEBDEA"><rect x="176" y="58" width="28" height="34" rx="5"/><rect x="176" y="248" width="28" height="34" rx="5"/><rect x="78" y="156" width="34" height="28" rx="5"/><rect x="268" y="156" width="34" height="28" rx="5"/></g><circle cx="190" cy="170" r="38" fill="#3F5BB5"/></g>
+        <g class="spin r"><circle cx="320" cy="250" r="50" fill="#F7E58F"/><g fill="#F7E58F"><rect x="310" y="186" width="20" height="24" rx="4"/><rect x="310" y="290" width="20" height="24" rx="4"/><rect x="256" y="240" width="24" height="20" rx="4"/><rect x="360" y="240" width="24" height="20" rx="4"/></g><circle cx="320" cy="250" r="18" fill="#1F2A5C"/></g>
+      </svg>
+    </div>
+  </div>
+  <div class="foot"><span>Luqman Asmadi, PMP®</span><span>09 / 09</span></div>
+</section>
+
+</div></div>
+<div id="bar">
+  <button id="prev" aria-label="Previous slide">←</button><span id="count">1 / 9</span><button id="next" aria-label="Next slide">→</button>
+  <button id="bFull">Full screen</button>
+  <button id="bEdit">Edit</button>
+  <button id="bReset" hidden>Reset edits</button>
+</div>
+<script>
+(()=>{
+const slides=[...document.querySelectorAll('.slide')],stage=document.getElementById('stage');
+const KEY='deck-edits:'+location.pathname;
+let saved={};try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+slides.forEach((sl,i)=>{if(saved[i])sl.innerHTML=saved[i]});
+let cur=0;
+const phone=matchMedia('(max-width:760px)');
+const still=matchMedia('(prefers-reduced-motion:reduce)');
+function fit(){if(phone.matches){stage.style.transform='none';slides.forEach(x=>x.classList.add('on'));return}
+  slides.forEach((x,i)=>x.classList.toggle('on',i===cur));
+  const s=Math.min(innerWidth/1280,(innerHeight-56)/720);stage.style.transform=`translate(-50%,-50%) scale(${s})`}
+function count(sl){if(still.matches)return;sl.querySelectorAll('[data-n]').forEach(el=>{const t=+el.dataset.n,p=el.dataset.p||'',s=el.dataset.s||'',t0=performance.now();
+  (function step(now){const k=Math.min(1,(now-t0)/1000),e=1-Math.pow(1-k,3);el.textContent=p+Math.round(t*e)+s;if(k<1)requestAnimationFrame(step)})(t0);
+  setTimeout(()=>el.textContent=p+t+s,1100)})}
+function go(i){
+  cur=Math.max(0,Math.min(slides.length-1,i));fit();
+  slides[cur].querySelectorAll('.a,.draw').forEach(el=>{el.style.animation='none';void el.offsetWidth;el.style.animation=''});
+  count(slides[cur]);
+  document.getElementById('count').textContent=`${cur+1} / ${slides.length}`;
+  document.getElementById('prog').style.width=((cur+1)/slides.length*100)+'%';
+  try{history.replaceState(null,'','#s'+(cur+1))}catch(e){}
+}
+addEventListener('resize',fit);
+const h=(location.hash.match(/^#s(\d+)$/)||[])[1];go(h?+h-1:0);
+document.getElementById('prev').onclick=()=>go(cur-1);
+document.getElementById('next').onclick=()=>go(cur+1);
+function full(){try{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(()=>{})}catch(e){}}
+document.getElementById('bFull').onclick=full;
+addEventListener('keydown',e=>{
+  if(document.body.classList.contains('editing'))return;
+  if(e.key==='e'||e.key==='E'){document.getElementById('bEdit').click();return}
+  if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(cur+1)}
+  else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(cur-1)}
+  else if(e.key==='f'||e.key==='F')full();
+});
+let tx=null;addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
+addEventListener('touchend',e=>{if(tx==null||phone.matches)return;const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50)go(cur+(dx<0?1:-1));tx=null});
+let idle;addEventListener('mousemove',()=>{document.body.classList.remove('idle');clearTimeout(idle);idle=setTimeout(()=>document.body.classList.add('idle'),2500)});
+
+/* edit mode: click text to change it; saved in this browser only */
+let editing=false;const eb=document.getElementById('bEdit'),er=document.getElementById('bReset');
+const dirty=new Set(Object.keys(saved).map(Number));
+function save(){const o={};dirty.forEach(i=>o[i]=slides[i].innerHTML);try{localStorage.setItem(KEY,JSON.stringify(o))}catch(e){}}
+function tE(){editing=!editing;document.body.classList.toggle('editing',editing);slides.forEach(sl=>sl.contentEditable=editing?'true':'false');eb.textContent=editing?'Done editing':'Edit';er.hidden=!editing;delete er.dataset.sure;er.textContent='Reset edits';if(!editing)save()}
+stage.addEventListener('input',e=>{if(!editing)return;const sl=e.target.closest('.slide');if(sl)dirty.add(slides.indexOf(sl));save()});
+eb.onclick=tE;
+er.onclick=()=>{if(er.dataset.sure){try{localStorage.removeItem(KEY)}catch(e){}location.reload()}else{er.dataset.sure=1;er.textContent='Click again to reset'}};
+addEventListener('keydown',e=>{if(e.key==='Escape'&&editing){e.preventDefault();tE()}},true);
+
+/* fit */
+const rows=[...document.querySelectorAll('#fit .row')],mtr=document.getElementById('mtr');
+const upd=()=>mtr.textContent=rows.filter(r=>r.classList.contains('ok')).length+'/'+rows.length;
+rows.forEach(r=>r.onclick=()=>{r.classList.toggle('ok');upd()});
+document.getElementById('all').onclick=()=>{const all=rows.every(r=>r.classList.contains('ok'));rows.forEach((r,i)=>setTimeout(()=>{r.classList.toggle('ok',!all);upd()},all?0:i*110))};
+
+/* SIGMA */
+const P=[['Requests routed by role: maker submits, checker approves','Every approval signed and time-stamped','Nothing is paid or changed without approval'],
+ ['Bank statement lines matched to payments and receipts','Unmatched items flagged as breaks to investigate','Same control logic as TA cash reconciliation'],
+ ['Payment runs, bills and invoices linked to each project','Numbering controlled by the system, no duplicates','Budget vs actual visible at any time'],
+ ['Dashboards built from live data, not spreadsheets','PDF and Excel exports for management and audit','One version of the truth']];
+const panel=document.getElementById('panel');
+function tab(i){document.querySelectorAll('#tabs .tab').forEach((b,k)=>b.classList.toggle('sel',k===i));panel.innerHTML='<ul>'+P[i].map(x=>`<li>${x}</li>`).join('')+'</ul>'}
+document.querySelectorAll('#tabs .tab').forEach(b=>b.onclick=()=>tab(+b.dataset.i));tab(0);
+
+/* TA lifecycle */
+const L=[
+ [['Identity checks (KYC/CDD), risk rating','PEP and sanctions screening','FATCA / CRS self-certification'],['Maker-checker on account opening','Enhanced due diligence for high risk'],['e-KYC and auto screening','Fewer manual document checks']],
+ [['Order time-stamped against fund cut-off','Priced at the forward NAV','Payment matched, units allotted'],['Cut-off control','Cooling-off rights for first-time investors'],['Auto payment matching','Straight-through processing']],
+ [['Change of address, contact, bank details','Nominees and joint holders'],['ID check on every change','Extra check on bank detail change: fraud risk'],['Self-service with OTP','Audit log of every change']],
+ [['Switch: redeem one fund, buy another','Transfer: change of unit holder'],['Correct pricing for both legs','Ownership and eligibility checks'],['Rules engine for switch pricing','Fewer exceptions to ops']],
+ [['Income distribution declared by the fund','Entitlement by holding on record date','Reinvest or pay out'],['Entitlement calculation check','Tax treatment applied correctly'],['Auto reinvestment','Investor notices generated by system']],
+ [['Request time-stamped against cut-off','Priced at the forward NAV, charges applied','Paid to verified bank account'],['Payout within the set time limit','Large or unusual redemption checks'],['Auto payment files','Status tracking for investors']],
+ [['Units: register vs fund accounting','Cash: bank vs TA records','Statements, regulatory and client reports'],['Daily breaks with ageing','Sign-off before reports go out'],['Matching rules for common breaks','Report generation from one source']]];
+const lp=document.getElementById('lpanel');
+function life(i){document.querySelectorAll('#life .lf').forEach((b,k)=>b.classList.toggle('sel',k===i));const h=['What happens','Controls','Where I look to automate'];lp.innerHTML=L[i].map((c,k)=>`<div><h4>${h[k]}</h4><ul>${c.map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('')}
+document.querySelectorAll('#life .lf').forEach(b=>b.onclick=()=>life(+b.dataset.l));life(0);
+
+/* BA steps */
+const B=[
+ [['Ops, IT, Product, Compliance in one room','Agree the problem before the solution','Note pain points, volumes, exceptions'],'<b>Example:</b> ops say redemptions after cut-off are fixed by hand every morning.'],
+ [['Map the current flow step by step','Mark manual steps, delays and risks','Draw the target flow and agree it'],'<b>Example:</b> as-is shows three manual hand-offs; to-be removes two with a system rule.'],
+ [['BRD: why, scope, business rules','FRD: what the system must do','Traceability: each rule to a test'],'<b>Example rule:</b> orders received after the fund cut-off are priced at the next dealing day NAV.'],
+ [['User stories for the backlog','Acceptance criteria in Given / When / Then','Agreed with ops before build'],'<b>Given</b> a redemption received after cut-off <b>When</b> it is processed <b>Then</b> it uses the next dealing day NAV and the investor is told.'],
+ [['UAT scripts from the acceptance criteria','Real scenarios, including edge cases','Defects tracked to sign-off'],'<b>Example:</b> test at one minute before and one minute after cut-off, and on a public holiday.'],
+ [['Train users before go-live','Hypercare: daily check-ins','Fix, measure, close'],'<b>Example:</b> track manual corrections per day; target zero within two weeks.']];
+const sp=document.getElementById('spanel');
+function step(i){document.querySelectorAll('#steps .s6').forEach((b,k)=>b.classList.toggle('sel',k===i));sp.innerHTML=`<div><h4>What I do</h4><ul>${B[i][0].map(x=>`<li>${x}</li>`).join('')}</ul></div><div class="ex"><h4>Example</h4><p>${B[i][1]}</p></div>`}
+document.querySelectorAll('#steps .s6').forEach(b=>b.onclick=()=>step(+b.dataset.s));step(0);
+})();
+</script>
+</body></html>
